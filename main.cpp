@@ -290,7 +290,16 @@ bool loadChannels(const std::string& source, std::vector<Channel>& channels) {
 
 } // namespace
 
+#ifdef __APPLE__
+int launchTerminalPlayer();
+#endif
+
 int main(int argc, char* argv[]) {
+#ifdef __APPLE__
+    if (argc == 1 || (argc == 2 && std::string_view(argv[1]).starts_with("-psn_"))) {
+        return launchTerminalPlayer();
+    }
+#endif
     if (argc != 2) {
         std::cerr << "Usage: iptv-player <playlist.m3u|playlist.m3u8|https://...>\n";
         return 2;

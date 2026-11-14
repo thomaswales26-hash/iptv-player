@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(iptv_player LANGUAGES CXX)
+project(iptv_player VERSION 1.0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -9,12 +9,19 @@ add_executable(iptv-player main.cpp)
 target_compile_options(iptv-player PRIVATE -Wall -Wextra -Wpedantic)
 
 if(APPLE)
+    enable_language(OBJCXX)
+    target_sources(iptv-player PRIVATE macos_launcher.mm)
+    set_source_files_properties(macos_launcher.mm PROPERTIES COMPILE_OPTIONS "-fobjc-arc")
+    target_link_libraries(iptv-player PRIVATE
+        "-framework AppKit"
+        "-framework UniformTypeIdentifiers")
     set_target_properties(iptv-player PROPERTIES
         MACOSX_BUNDLE TRUE
         OUTPUT_NAME "IPTV Player"
         MACOSX_BUNDLE_BUNDLE_NAME "IPTV Player"
-        MACOSX_BUNDLE_BUNDLE_VERSION "1"
-        MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0")
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.iptvplayer.app"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}")
 endif()
 
 option(IPTV_BUNDLE_FFMPEG "Copy discovered FFmpeg executables beside the player" ON)

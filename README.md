@@ -24,7 +24,8 @@ Or build the macOS `.pkg` installer:
 The generated package is unsigned and architecture-specific. Downloadable
 packages are published on the GitHub Releases page.
 
-This is a terminal application; run it from Terminal:
+Double-clicking the app opens a playlist picker and launches the player in
+Terminal. To start it directly from Terminal instead:
 
 ```sh
 "/Applications/IPTV Player.app/Contents/MacOS/IPTV Player" channels.m3u
