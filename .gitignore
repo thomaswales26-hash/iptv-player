@@ -3,4 +3,5 @@
 /cmake-build-*/
 .idea/
 *.pkg
+*.pkg.sha256
 .DS_Store
