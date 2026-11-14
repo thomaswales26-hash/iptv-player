@@ -21,8 +21,13 @@ Or build the macOS `.pkg` installer:
 ./scripts/build-macos-pkg.sh
 ```
 
-The generated package is unsigned and architecture-specific. Downloadable
-packages are published on the GitHub Releases page.
+The package is architecture-specific. Without signing identities it is
+ad-hoc-signed and not notarized, so macOS may block it on first launch. In
+Finder, Control-click the app, choose **Open**, then confirm **Open**. For
+trusted distribution, set `CODESIGN_IDENTITY` to a Developer ID Application
+identity and `PKG_SIGN_IDENTITY` to a Developer ID Installer identity when
+building; notarization additionally requires Apple Developer credentials.
+Downloadable packages are published on the GitHub Releases page.
 
 Double-clicking the app opens a playlist picker and launches the player in
 Terminal. To start it directly from Terminal instead:
