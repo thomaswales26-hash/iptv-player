@@ -5,4 +5,5 @@
 *.pkg
 *.pkg.sha256
 *.dmg
+*.dmg.sha256
 .DS_Store
