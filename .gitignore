@@ -1,4 +1,6 @@
 /build/
+/build-macos/
 /cmake-build-*/
+.idea/
 *.pkg
 .DS_Store
