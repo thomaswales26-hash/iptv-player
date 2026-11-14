@@ -4,4 +4,5 @@
 .idea/
 *.pkg
 *.pkg.sha256
+*.dmg
 .DS_Store

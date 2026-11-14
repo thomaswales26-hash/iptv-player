@@ -3,7 +3,7 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BUILD_DIR="${BUILD_DIR:-$PROJECT_ROOT/build-macos}"
-VERSION="${VERSION:-1.0.0}"
+VERSION="${VERSION:-1.0.2}"
 ARCH="$(uname -m)"
 OUTPUT="${OUTPUT:-$PROJECT_ROOT/IPTV-Player-${VERSION}-macos-${ARCH}.pkg}"
 WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/iptv-player-pkg.XXXXXX")"

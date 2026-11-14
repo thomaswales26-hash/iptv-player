@@ -21,6 +21,15 @@ Or build the macOS `.pkg` installer:
 ./scripts/build-macos-pkg.sh
 ```
 
+To package the installer into a compressed DMG:
+
+```sh
+./scripts/build-macos-dmg.sh
+```
+
+The DMG contains the `.pkg` installer, its SHA-256 checksum, and short install
+instructions.
+
 The package is architecture-specific. Without signing identities it is
 ad-hoc-signed and not notarized, so macOS may block it on first launch. In
 Finder, Control-click the app, choose **Open**, then confirm **Open**. For
